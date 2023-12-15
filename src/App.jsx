@@ -1,25 +1,31 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
 import Main from "./pages/Main";
-import Portfolio from "./pages/Portfolio";
 import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Ceo from "./pages/Ceo";
+import Account from "./pages/Account";
+import Parcel from "./pages/Parcel";
+import Order from "./components/Order";
+import Orderconfirm from "./components/Orderconfirm";
+import Deliver from "./components/Deliver";
+import Deliverconfirm from "./components/Deliverconfirm";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="bg-red-100 min-h-screen flex flex-col">
-        {/* <Header /> */}
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/portfolio/:projectId" element={<Portfolio />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/프롬댓 관리자" element={<Ceo />} />
+          <Route path="/거래처 사장님" element={<Account />} />
+          <Route path="/택배 기사님" element={<Parcel />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/orderConfirm" element={<Orderconfirm />} />
+          <Route path="/deliver" element={<Deliver />} />
+          <Route path="/deliverconfirm" element={<Deliverconfirm />} />
         </Routes>
-        {/* <Footer /> */}
       </div>
     </BrowserRouter>
   );
