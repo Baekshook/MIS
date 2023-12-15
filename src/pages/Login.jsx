@@ -32,15 +32,17 @@ export default function Login() {
             type="password"
             placeholder="**********"
           />
-          <p class="text-red-500 text-xs italic">비밀번호를 설정해주세요.</p>
+          <p class="text-red-500 text-xs italic">비밀번호를 입력해주세요.</p>
         </div>
         <div class="flex items-center justify-between">
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
-          >
-            로그인
-          </button>
+          <Link>
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+            >
+              로그인
+            </button>
+          </Link>
           <Link to={"/signup"}>
             <button
               class="bg-blue-500 ml-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -49,8 +51,18 @@ export default function Login() {
               회원가입
             </button>
           </Link>
+          <Link to={"/"}>
+            <button
+              class="bg-blue-500 ml-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+            >
+              뒤로가기
+            </button>
+          </Link>
+        </div>
+        <div>
           <a
-            class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 ml-5"
+            class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mt-6"
             href="11"
           >
             비밀번호를 잊으셨나요?

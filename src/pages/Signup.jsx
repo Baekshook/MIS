@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Signup() {
   return (
@@ -16,7 +17,7 @@ export default function Signup() {
               class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-first-name"
               type="text"
-              placeholder="Jane"
+              placeholder="홍길동"
             />
           </div>
           <div class="w-full md:w-1/2 px-3">
@@ -30,7 +31,7 @@ export default function Signup() {
               class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-last-name"
               type="text"
-              placeholder="Doe"
+              placeholder="아이디를 입력해주세요."
             />
           </div>
         </div>
@@ -123,6 +124,14 @@ export default function Signup() {
               placeholder="example@gmail.com"
             />
           </div>
+          <Link to={"/login"}>
+            <button
+              class="bg-blue-500 ml-3 mt-8 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+            >
+              회원가입
+            </button>
+          </Link>
         </div>
       </form>
     </div>
