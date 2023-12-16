@@ -135,7 +135,7 @@ export default function Account() {
               <p className="leading-relaxed text-base">
                 프롬댓 회사에 현재 재고 현황을 등록합니다.
               </p>
-              <Link to={"/orderconfirm"}>
+              <Link to={"/inventory"}>
                 <button
                   class="mt-3 text-indigo-500 inline-flex items-center"
                   href="aaa"

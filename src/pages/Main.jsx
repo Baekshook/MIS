@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import fromthat from "../images/Fromthat.png";
 
 export default function Main() {
   const divStyle = {
@@ -13,9 +14,29 @@ export default function Main() {
   };
 
   const [selectedValue, setSelectedValue] = useState("프롬댓 관리자");
+  const [ID, setID] = useState("");
+  const [PassWord, setPassWord] = useState("");
 
   const handleChange = (e) => {
     setSelectedValue(e.target.value);
+  };
+
+  const handleIDChange = (e) => {
+    setID(e.target.value);
+  };
+
+  const handlePWChange = (e) => {
+    setPassWord(e.target.value);
+  };
+
+  const loginAlert = () => {
+    if (ID === "") {
+      alert("ID를 입력해주세요.");
+    } else if (PassWord === "") {
+      alert("비밀번호를 입력해주세요.");
+    } else {
+       alert("로그인 성공!");
+    }
   };
 
   return (
@@ -23,13 +44,9 @@ export default function Main() {
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
           <div>
-            <img
-              src="https://shop-phinf.pstatic.net/20230117_76/1673925194822My3Vu_PNG/6FDD053B-EF64-49A4-8CDB-B86F9634F676.png?type=w640"
-              className=" w-96 mx-auto"
-              alt="application"
-            />
+            <img src={fromthat} className=" w-40 mx-auto" alt="application" />
           </div>
-          <div className="mt-3 flex flex-col items-center">
+          <div className="mt-10 flex flex-col items-center">
             <h1 className="text-2xl xl:text-3xl font-extrabold">로그인</h1>
             <div className="w-full flex-1 mt-8">
               <div className="mx-auto max-w-xs">
@@ -37,11 +54,15 @@ export default function Main() {
                   className="w-full mt-8 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="email"
                   placeholder="ID"
+                  value={ID}
+                  onChange={handleIDChange}
                 />
                 <input
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="password"
                   placeholder="Password"
+                  value={PassWord}
+                  onChange={handlePWChange}
                 />
                 <div className="relative mt-5">
                   <select
@@ -56,22 +77,47 @@ export default function Main() {
                   </select>
                 </div>
                 <div className="flex flex-row mt-5">
-                  <Link to={`/${selectedValue}`}>
-                    <button className="mt-5 tracking-wide p-9 font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
+                  {!ID || !PassWord ? (
+                    <Link to={"/"}>
+                      <button
+                        onClick={loginAlert}
+                        className="mt-5 tracking-wide p-9 font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                       >
-                        <path
-                          fill="currentColor"
-                          d="M12 21v-2h7V5h-7V3h7q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm-2-4l-1.375-1.45l2.55-2.55H3v-2h8.175l-2.55-2.55L10 7l5 5z"
-                        />
-                      </svg>
-                      <span className="ml-3">로그인</span>
-                    </button>
-                  </Link>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M12 21v-2h7V5h-7V3h7q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm-2-4l-1.375-1.45l2.55-2.55H3v-2h8.175l-2.55-2.55L10 7l5 5z"
+                          />
+                        </svg>
+                        <span className="ml-3">로그인</span>
+                      </button>
+                    </Link>
+                  ) : (
+                    <Link to={`/${selectedValue}`}>
+                      <button
+                        onClick={loginAlert}
+                        className="mt-5 tracking-wide p-9 font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M12 21v-2h7V5h-7V3h7q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm-2-4l-1.375-1.45l2.55-2.55H3v-2h8.175l-2.55-2.55L10 7l5 5z"
+                          />
+                        </svg>
+                        <span className="ml-3">로그인</span>
+                      </button>
+                    </Link>
+                  ) }
                   <Link to={"/signup"}>
                     <button className="mt-5 ml-3 p-7 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                       <svg

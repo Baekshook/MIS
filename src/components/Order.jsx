@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Switch } from "@headlessui/react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -6,7 +6,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Order() {
+export default function Order({
+  todos2,
+  setTodos2,
+  inputValues2,
+  setInputValues2,
+}) {
   const [agreed, setAgreed] = useState(false);
 
   const navigate = useNavigate();
@@ -14,6 +19,42 @@ export default function Order() {
   const handleBack = () => {
     navigate(-1); //뒤로가기
   };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInputValues2((prevInputValues) => ({
+      ...prevInputValues,
+      [name]: value,
+    }));
+  };
+
+  const addTodo = () => {
+    const { name, clothName, number, phoneNumber, request } = inputValues2;
+    const newTodo = { name, clothName, number, phoneNumber, request };
+
+    setTodos2((prevTodos) => [...prevTodos, newTodo]);
+    setInputValues2({
+      name: "",
+      clothName: "",
+      number: "",
+      phoneNumber: "",
+      request: "",
+    });
+
+    localStorage.setItem("todos2", JSON.stringify(todos2));
+    localStorage.setItem("todos2", JSON.stringify([...todos2, newTodo]));
+    alert("등록 성공!");
+  };
+
+  useEffect(() => {
+    const storedTodos = JSON.parse(localStorage.getItem("todos2")) || [];
+    setTodos2(storedTodos);
+  }, []);
+
+  // 로컬 스토리지에 데이터 저장
+  useEffect(() => {
+    localStorage.setItem("todos2", JSON.stringify(todos2));
+  }, [todos2]);
 
   return (
     <div className="px-6 py-24 sm:py-32 lg:px-8">
@@ -50,8 +91,9 @@ export default function Order() {
             <div className="mt-2.5">
               <input
                 type="text"
-                name="first-name"
-                id="first-name"
+                name="name"
+                value={inputValues2.name}
+                onChange={handleInputChange}
                 autoComplete="given-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -67,8 +109,9 @@ export default function Order() {
             <div className="mt-2.5">
               <input
                 type="text"
-                name="last-name"
-                id="last-name"
+                name="clothName"
+                value={inputValues2.clothName}
+                onChange={handleInputChange}
                 autoComplete="family-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -79,13 +122,14 @@ export default function Order() {
               htmlFor="company"
               className="block text-sm font-semibold leading-6 text-gray-900"
             >
-              회사 이름
+              수량
             </label>
             <div className="mt-2.5">
               <input
-                type="text"
-                name="company"
-                id="company"
+                type="number"
+                name="number"
+                value={inputValues2.number}
+                onChange={handleInputChange}
                 autoComplete="organization"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -93,36 +137,18 @@ export default function Order() {
           </div>
           <div className="sm:col-span-2">
             <label
-              htmlFor="email"
-              className="block text-sm font-semibold leading-6 text-gray-900"
-            >
-              Email
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                autoComplete="email"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div className="sm:col-span-2">
-            <label
-              htmlFor="phone-number"
+              htmlFor="phoneNumber"
               className="block text-sm font-semibold leading-6 text-gray-900"
             >
               휴대폰 번호
             </label>
-            <div className="relative mt-2.5">
-              <div className="absolute inset-y-0 left-0 flex items-center"></div>
+            <div className="mt-2.5">
               <input
-                type="tel"
-                name="phone-number"
-                id="phone-number"
-                autoComplete="tel"
-                className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                type="text"
+                name="phoneNumber"
+                value={inputValues2.phoneNumber}
+                onChange={handleInputChange}
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -135,8 +161,10 @@ export default function Order() {
             </label>
             <div className="mt-2.5">
               <textarea
-                name="message"
-                id="message"
+                type="text"
+                name="request"
+                value={inputValues2.request}
+                onChange={handleInputChange}
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 defaultValue={""}
@@ -171,6 +199,7 @@ export default function Order() {
         <div className="mt-10">
           <Link onClick={handleBack}>
             <button
+              onClick={addTodo}
               type="submit"
               className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
