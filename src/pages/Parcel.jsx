@@ -36,7 +36,7 @@ export default function Parcel() {
                 배달 목록 조회
               </h2>
               <p className="leading-relaxed text-base">
-                고객님께 전달할 택배 목록을 확인 합니다.
+                프롬댓 회사 또는 고객님께 전달할 택배 목록을 확인 합니다.
               </p>
               <Link to={"/deliverconfirm"}>
                 <button
