@@ -98,7 +98,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="bg-red-100 min-h-screen flex flex-col">
+      <div className=" bg-orange-50 min-h-screen flex flex-col">
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/signup" element={<Signup />} />
