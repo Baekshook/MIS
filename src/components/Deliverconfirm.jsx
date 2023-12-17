@@ -2,7 +2,7 @@ export default function Deliverconfirm({ todos }) {
   return (
     <>
       <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl items-center justify-center flex mt-10">
-        배송 등록 🏍️
+        배송 목록 조회 🏍️
       </h2>
       <div className="mt-20">
         {todos.map((v, i) => {
