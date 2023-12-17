@@ -6,10 +6,10 @@ export default function Parcel() {
       <div className="container px-5 py-24 mx-auto">
         <div className="text-center mb-20">
           <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
-            배달 기사님 전용 페이지
+            배송 기사님 전용 페이지
           </h1>
           <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">
-            이곳에서 배달 목록 조회를 해보세요.
+            이곳에서 배송 목록 조회를 해보세요.
           </p>
           <div className="flex mt-6 justify-center">
             <div className="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
@@ -33,17 +33,17 @@ export default function Parcel() {
             </div>
             <div className="flex-grow">
               <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                배달 목록 조회
+                배송 목록 조회
               </h2>
               <p className="leading-relaxed text-base">
-                프롬댓 회사 또는 고객님께 전달할 택배 목록을 확인 합니다.
+                프롬댓 회사 또는 고객님께 전달할 배송 목록을 확인 합니다.
               </p>
               <Link to={"/deliverconfirm"}>
                 <button
                   href="bbb"
                   className="mt-3 text-indigo-500 inline-flex items-center"
                 >
-                  배달 목록 확인하러 가기
+                  배송 목록 확인하러 가기
                   <svg
                     fill="none"
                     stroke="currentColor"

@@ -73,7 +73,7 @@ export default function Main() {
                   >
                     <option value="프롬댓 관리자">프롬댓 관리자</option>
                     <option value="거래처 사장님">거래처 사장님</option>
-                    <option value="택배 기사님">택배 기사님</option>
+                    <option value="택배 기사님">배송 기사님</option>
                   </select>
                 </div>
                 <div className="flex flex-row mt-5">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Ceo() {
   const a = "거래처 사장님에게 요청할\n주문서를 작성합니다.";
-  const b = "고객님께 전달할 배달 기사님을\n등록 및 요청합니다.";
+  const b = "고객님께 전달할 배송 기사님을\n등록 및 요청합니다.";
   return (
     <section className="text-gray-600 body-font whitespace-pre-line">
       <div className="container px-5 py-24 mx-auto">
@@ -12,7 +12,7 @@ export default function Ceo() {
             프롬댓 관리자 전용 페이지
           </h1>
           <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">
-            이곳에서 배달 등록, 주문서 작성, 주문서 확인과 재고 현황 조회를
+            이곳에서 배송 등록, 주문서 작성, 주문서 확인과 재고 현황 조회를
             해보세요.
           </p>
           <div className="flex mt-6 justify-center">
@@ -133,7 +133,7 @@ export default function Ceo() {
             </div>
             <div className="flex-grow">
               <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                배달 등록
+                배송 등록
               </h2>
               <p className="leading-relaxed text-base">{b}</p>
               <Link to={"/deliver"}>
@@ -141,7 +141,7 @@ export default function Ceo() {
                   href="bbb"
                   className="mt-3 text-indigo-500 inline-flex items-center"
                 >
-                  배달 등록하러 가기
+                  배송 등록하러 가기
                   <svg
                     fill="none"
                     stroke="currentColor"

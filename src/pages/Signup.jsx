@@ -101,7 +101,7 @@ export default function Signup() {
               >
                 <option>프롬댓 관리자</option>
                 <option>거래처 사장님</option>
-                <option>택배 기사님</option>
+                <option>배송 기사님</option>
               </select>
             </div>
           </div>

@@ -88,17 +88,17 @@ export default function Account() {
             </div>
             <div className="flex-grow">
               <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                배달 등록
+                배송 등록
               </h2>
               <p className="leading-relaxed text-base">
-                프롬댓 회사에 전달할 배달 기사님을 등록 및 요청합니다.
+                프롬댓 회사에 전달할 배송 기사님을 등록 및 요청합니다.
               </p>
               <Link to={"/deliver"}>
                 <button
                   href="bbb"
                   className="mt-3 text-indigo-500 inline-flex items-center"
                 >
-                  배달 등록하러 가기
+                  배송 등록하러 가기
                   <svg
                     fill="none"
                     stroke="currentColor"
